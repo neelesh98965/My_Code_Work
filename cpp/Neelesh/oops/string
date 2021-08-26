@@ -1,0 +1,28 @@
+#include<iostream>
+#include<sstream>
+using namespace std;
+
+class str{
+    string a;
+    public:
+    void change(string stt);
+};
+
+void str :: change(string stt){
+    for (int i = 0; i < stt.size(); i++)
+    {
+       if(stt[i] == ','){
+         stt[i]  = '\n';
+       }
+    }
+    cout<<stt;
+}
+
+int main()
+{
+    string st;
+    str s1;
+    cin>>st;
+    s1.change(st);
+    return 0;
+}
