@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class y;
+
+class x
+{
+    int val1;
+    friend void exchange(x &c, y &d);
+
+public:
+    void setval(int a)
+    {
+        val1 = a;
+    }
+    void display()
+    {
+        cout << val1 << endl;
+    }
+};
+
+class y
+{
+    friend void exchange(x &c, y &d);
+    int val2;
+
+public:
+    void setval(int b)
+    {
+        val2 = b;
+    }
+    void display()
+    {
+        cout << val2 << endl;
+    }
+};
+
+void exchange(x &c, y &d)
+{
+    int temp;
+    temp = c.val1;
+    c.val1 = d.val2;
+    d.val2 = temp;
+}
+
+int main(int argc, char const *argv[])
+{
+    x e;
+    y f;
+    e.setval(22);
+    f.setval(3444444);
+    exchange(e,f);
+
+    cout<<"The values after exchanging is"<<endl;
+    e.display();
+    f.display();
+    return 0;
+}
