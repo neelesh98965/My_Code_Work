@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+class str
+{
+public:
+    void check(string stt)
+    {
+        if (stt[8] == 'A' && stt[0] == '1' && stt[1] == '2')
+        {
+            stt[0] = '0';
+            stt[1] = '0';
+            stt[8] = ' ';
+            stt[9] = ' ';
+            cout << stt;
+            exit(0);
+        }
+        for (int i = 0; i < stt.size(); i++)
+        {
+            if (stt[i] == 'A')
+            {
+                stt[8] = ' ';
+                stt[9] = ' ';
+                cout << stt;
+            }
+        }
+    }
+    void check2(string stt)
+    {        
+        if (stt[0] == '1' && stt[1] == '2')
+        {
+            stt[8] = ' ';
+            stt[9] = ' ';
+            cout << stt;
+        }
+        for (int i = 0; i < stt.size(); i++)
+        {
+            if (stt[i] == 'P')
+            {
+                stt[0] = stt[0] + 1;
+                stt[1] = stt[1] + 2;
+                stt[8] = ' ';
+                stt[9] = ' ';
+                cout << stt;
+            }
+        }
+    }
+};
+
+int main(int argc, char const *argv[])
+{
+    string s;
+    getline(cin, s);
+    str sttt;
+    sttt.check(s);
+    sttt.check2(s);
+
+    return 0;
+}
