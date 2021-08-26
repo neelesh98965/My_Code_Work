@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+class bankdeposit
+{
+    int principal;
+    int time;
+    float rate;
+    float returnvalue;
+
+public:
+    bankdeposit(){}
+    bankdeposit(int a, int t, float r);
+    bankdeposit(int a, int t, int R);
+    void show();
+};
+
+bankdeposit ::bankdeposit(int a, int t, float r)
+{
+    principal = a;
+    time = t;
+    rate = r;
+    returnvalue = principal;
+    for (int i = 0; i < t; i++)
+    {
+        returnvalue = returnvalue * (1 + r);
+    }
+}
+
+bankdeposit ::bankdeposit(int a, int t, int R)
+{
+    principal = a;
+    time = t;
+    rate = float(R)/100;
+    returnvalue = principal;
+    for (int i = 0; i < t; i++)
+    {
+        returnvalue = returnvalue * (1 + rate);
+    }
+}
+
+void bankdeposit :: show()
+    {
+        cout << "The returnvalue on " << principal << " after " << time << " years is " << returnvalue << endl;
+    }
+
+    int main()
+    {
+        int p;
+        int t;
+        int R;
+        float r;
+        bankdeposit bd1,bd2;
+        cin >> p >> t >> r;
+        bd1 = bankdeposit(p, t, r), 
+        bd1.show();
+
+        cin >> p >> t >> R;
+        bd2 = bankdeposit(p,t,R);
+        bd2.show();
+        return 0;
+    }
