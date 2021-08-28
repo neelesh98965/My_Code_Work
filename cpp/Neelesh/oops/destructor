@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+int count = 0;
+
+class number{
+    public:
+    number(){
+        count++;
+        cout<<"This is object number "<<count<<endl;
+    }
+    ~number(){
+        cout<<"This is destructor for object number "<<count<<endl;
+        count--;
+    }
+};
+
+int main()
+{
+    cout<<"Welcome to main"<<endl;
+    number n1;
+    {
+        cout<<"Entering the block"<<endl<<"Here i will make two more objects"<<endl;
+        number n2,n3;
+        cout<<"Exiting the block"<<endl;
+    }
+    cout<<"Back to main"<<endl;
+    return 0;
+}
