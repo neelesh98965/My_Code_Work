@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+class number{
+    int a;
+    public:
+    number(){
+        a=0;
+    }
+    number(int num){
+        a = num;
+    }
+    // copy constructor called
+    number(number &obj){
+        a = obj.a;
+    }
+    void  display(){
+        cout<<a<<endl;
+    }
+};
+
+int main()
+{
+    // if we doesnt make a copy constructor then the compiler assigns it to us as we see in z3 case
+   number z1,z2(45),z3(z2);
+   z1.display(); 
+   z2.display(); 
+   z3.display(); 
+    return 0;
+}
