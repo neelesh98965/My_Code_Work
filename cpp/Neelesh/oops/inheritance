@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+class employee{
+    public:
+    int id;
+    int salary;
+    employee(int inpid){
+        id = inpid;
+        salary = 35;
+    }
+    employee(){}
+};
+
+class programmer : public employee{
+    public:
+    int languagecode;
+    programmer(int inpid){
+        id = inpid;
+        languagecode = 9;
+    }
+    void getdata(){
+        cout<<languagecode<<endl;
+    }
+};
+
+int main()
+{
+    employee nishu(231),harry;
+    cout<<nishu.id<<endl;
+    cout<<nishu.salary<<endl;
+    programmer skill(2390);
+    cout<<skill.id<<endl;
+    cout<<skill.languagecode<<endl;
+    skill.getdata();
+    return 0;
+}
