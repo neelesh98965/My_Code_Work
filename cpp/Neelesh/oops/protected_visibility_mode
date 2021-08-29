@@ -1,0 +1,2 @@
+In protected mode ::
+ members of protected  can be derived but cannot be used in main , unlike public members
