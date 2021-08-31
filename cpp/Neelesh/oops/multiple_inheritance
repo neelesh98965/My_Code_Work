@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+
+class base1{
+    protected:
+    int base1;
+    public:
+    void setdata1(int a){
+        base1 = a;
+    }
+};
+
+class base2{
+    protected:
+    int base2;
+    public:
+    void setdata2(int a){
+        base2 = a;
+    }
+};
+
+class base3{
+    protected:
+    int base3;
+    public:
+    void setdata3(int a){
+        base3 = a;
+    }
+};
+
+
+class base_sum : public base1 , public base2 , public base3{
+    public:
+    void display(){
+        cout<<"The value of base1 is "<<base1<<endl;
+        cout<<"The value of base2 is "<<base2<<endl;
+        cout<<"The value of base1 is "<<base1<<endl;
+        cout<<"The sum of all the bases is "<<base1 + base2 + base3<<endl;
+    }
+};
+
+int main()
+{
+    base_sum ss;
+    ss.setdata1(11);        
+    ss.setdata2(110);        
+    ss.setdata3(109);        
+    ss.display();
+    return 0;  
+}
