@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+class student
+{
+protected:
+    int roll_no;
+
+public:
+    void setdata(int r);
+    void getdata();
+};
+
+void student ::setdata(int r)
+{
+    roll_no = r;
+}
+
+void student ::getdata()
+{
+    cout << "The roll no. of the student is " << roll_no << endl;
+}
+
+class marks : public student
+{
+protected:
+    float maths;
+    float physics;
+
+public:
+    void setdata1(float, float);
+    void getdata1();
+};
+
+void marks ::setdata1(float m, float p)
+{
+    maths = m;
+    physics = p;
+}
+
+void marks ::getdata1()
+{
+    cout << "The marks of the student in maths and physics are " << maths << " and " << physics << endl;
+}
+
+class result : public marks
+{
+    float percentage;
+
+public:
+    void display();
+};
+
+void result ::display()
+{
+    getdata();
+    getdata1();
+    cout << "The percentage of the student in the given exams are " << (maths + physics) / 2 << endl;
+}
+int main()
+{
+    result rr;
+    int n;
+    cin >> n;
+    int roll_no[n];
+    int maths[n];
+    int physics[n];
+        for (int i = 0; i < n; i++)
+    {
+        cin>>roll_no[i];
+        cin>>maths[i];
+        cin>>physics[i];
+       }
+    for (int i = 0; i < n; i++)
+    {
+        rr.setdata(roll_no[i]);
+        rr.setdata1(maths[i], physics[i]);
+        rr.display();
+    }
+    return 0;
+}
