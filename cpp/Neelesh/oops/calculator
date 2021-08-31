@@ -1,0 +1,66 @@
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+class simple_calculator{
+    protected:
+    float a,b;
+    public:
+    void setdata(float,float);
+    void getdata();
+};
+
+void simple_calculator :: setdata(float c, float d){
+    a = c;
+    b = d;
+}
+
+void simple_calculator :: getdata(){
+    cout<<"The sum of the two numbers is "<<a + b<<endl;
+    cout<<"The difference of the two numbers is "<<abs(a - b)<<endl;
+    cout<<"The product of the two numbers is "<<a * b<<endl;
+    cout<<"The division of the two numbers is "<<a / b<<endl;
+}
+
+class scientific_calculator{
+    protected:
+    float angle , x;
+    public:
+    void setdata1(float);
+    void getdata1();
+};
+
+void scientific_calculator :: setdata1(float e){
+    angle = e; 
+    x = (angle * 3.14)/180;
+}
+
+void scientific_calculator :: getdata1(){
+    cout<<"The value of sin("<<angle<<") = "<<sin(x)<<endl;
+    cout<<"The value of cos("<<angle<<") = "<<cos(x)<<endl;
+    cout<<"The value of tan("<<angle<<") = "<<tan(x)<<endl;
+    cout<<"The value of cot("<<angle<<") = "<<(1/tan(x))<<endl;
+}
+
+class hybrid_calculator : public simple_calculator , public scientific_calculator{
+    public:
+    void display();
+};
+
+void hybrid_calculator :: display(){
+    cout<<"This is a hybrid calculator which gives us the values of add, sub, multi, div, sin, cos, tan, cot functions."<<endl;
+    getdata();
+    getdata1();
+    cout<<"The above mentioned are the results of your asked values "<<endl;
+}
+
+int main()
+
+{
+    hybrid_calculator rr;
+    rr.setdata(2 ,6);
+    rr.setdata1(45);
+    rr.display();
+    return 0;
+}
