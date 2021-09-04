@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+class complex{
+    int real,imaginary;
+    public:
+    void setdata(int a, int b){
+        real = a;
+        imaginary = b;
+    }
+    void getdata(){
+        cout<<"The real part is "<<real<<endl;
+        cout<<"The imaginary part is "<<imaginary<<endl;
+    }
+};
+
+int main()
+{
+    // complex c1;
+    // complex *ptr = &c1;
+    // complex *ptr = new complex;
+    // array of objects using pointers
+    complex *ptr = new complex[4];
+    // (*ptr).setdata(4,5);-->this can also be shown as :
+    ptr->setdata(4,5); 
+    (*ptr).getdata();
+    return 0;
+}
