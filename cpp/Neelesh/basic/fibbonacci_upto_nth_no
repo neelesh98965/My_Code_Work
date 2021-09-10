@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int fib(int s){
+    if(s == 0 || s == 1)
+    return s;
+    else
+    return fib(s-1)+fib(s-2);
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    int n,sum = 0;
+    cin>>n;
+    while (fib(sum) <= n)
+    {
+        cout<<fib(sum)<<" ";
+        sum++;
+    }
+    
+    return 0;
+}
