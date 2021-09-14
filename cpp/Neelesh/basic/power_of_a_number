@@ -1,0 +1,15 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+    cout<<"Enter the base value -- > ";
+    int n;
+    cin>>n;
+    cout<<"Enter the exponent power --> ";
+    int a;
+    cin>>a;
+    cout<<pow(n,a);
+    return 0;
+}
