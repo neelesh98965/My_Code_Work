@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+/* we can use this pointer to make any function as object or we can use it to point to the object which invokes the member function
+*/
+class A{
+    int a;
+    public:
+    // A & setdata(int a){
+    void setdata(int a){
+       this->a = a;
+    //    return *this;
+    }
+    void display(){
+        cout<<"The value of a is "<<a<<endl;
+    }
+};
+
+int main()
+{
+   A a;
+//    a.setdata(5).display();
+   a.setdata(5);
+   a.display(); 
+    return 0;
+}
