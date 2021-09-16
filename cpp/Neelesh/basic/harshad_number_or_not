@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    int n,rem,sum = 0,a;
+    cin>>n;
+    a = n;
+    while (n)
+    {
+        rem = n%10;
+        sum += rem;
+        n = n/10;
+    }
+    // cout<<sum<<"\n";
+    // cout<<a;
+    if(a%sum == 0){
+        cout<<"Harshad number";;
+    }
+    else{
+        cout<<"not a Harshad number";
+    }
+    
+    return 0;
+}
