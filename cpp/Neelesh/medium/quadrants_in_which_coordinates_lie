@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+        cout<<"Enter the coordinates you want to check \n";
+        int a,b;
+        cin>>a>>b;
+        if(a>0 && b>0)
+        cout<<"I Quadrant";
+        else if(a<0 && b>0)
+        cout<<"II Quadrant";
+        else if(a<0 && b<0)
+        cout<<"III Quadrant";
+        else if(a>0 && b<0)
+        cout<<"IV Quadrant";
+        else
+        cout<<"Origin";
+    return 0;
+}
