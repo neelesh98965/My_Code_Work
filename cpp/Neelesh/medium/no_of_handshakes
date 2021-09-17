@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout<<"Number of students in the class are --> ";
+    cin>>n;
+    cout<<"Number of the handshakes made by all the students are --> "<<(n*(n-1))/2;
+    return 0;
+}
