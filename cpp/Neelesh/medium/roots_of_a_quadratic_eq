@@ -1,0 +1,22 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    float a,b,c,d,root1,root2;
+    cin>>a>>b>>c;
+    d = (b*b)-(4*a*c);
+    if(d<0){
+        cout<<"Imaginary Roots ";
+    }
+    else{
+    cout<<"Roots are \n";
+        root1 = (-b+sqrt(d))/(2*a);
+        root2 = (-b-sqrt(d))/(2*a);
+        cout<<root1<<"\n"<<root2;
+    }
+    return 0;
+}
