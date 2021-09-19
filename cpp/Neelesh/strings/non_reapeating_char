@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+void check(string s ,char c){
+    int count = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if(s[i] == c){
+        count++;
+        }
+    }
+    if(count == 1){
+        cout<<c;
+    }
+    else{
+        cout<<"All characters are repetitive";
+    }
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    string s;
+    getline(cin,s);
+    for (int i = 0; i < s.length(); i++)
+    {
+        check(s,s[i]);
+        exit(0);
+    }
+    
+    return 0;
+}
