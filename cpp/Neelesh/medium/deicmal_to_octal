@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    cout<<"Enter the decimal number which you want to get converted --> ";
+    int n,rem,num = 0;
+     int i=1;
+    cin>>n;
+    while (n)
+    {
+        rem = n%8;
+        n = n/8;
+        // cout<<rem<<"\n";
+        num += rem*i;
+        i = i*10;
+        // cout<<i<<"\n";
+    }
+    cout<<"The octal form of the above decimal number is --> "<<num; 
+    return 0;
+}
