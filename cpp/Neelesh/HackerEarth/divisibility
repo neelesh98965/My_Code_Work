@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    long long int n,rem,num =0;
+    cin>>n;
+    long long int arr[n];
+    for(int i = 0;i<n;i++){
+        cin>>arr[i];
+        rem = arr[i]%10;
+        arr[i] = 0;
+        num = num*10+rem;
+    }
+    // cout<<num;
+    if(num%10 == 0){
+        cout<<"Yes";
+    }
+    else{
+        cout<<"No";
+    }
+    return 0;
+}
