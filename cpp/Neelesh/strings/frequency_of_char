@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+void frequency(string s , char c){
+int count = 0;
+for (int j = 0; j < s.length(); j++)
+        {
+            // cout<<char(c);
+            if(s[j] == char(c)){
+                count++;
+            }
+        }
+        if(count > 0){
+        cout<<char(c)<<"-"<<count<<"\n";
+        }
+        else{
+            cout<<'\0';
+        }
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    string s;
+    getline(cin,s);
+    for (int i = 'a'; i <= 'z'; i++)
+    {
+        frequency(s,char (i));    
+    }
+    return 0;
+}
