@@ -1,0 +1,2 @@
+gcloud config get-value compute/zone
+gcloud config get-value compute/region
