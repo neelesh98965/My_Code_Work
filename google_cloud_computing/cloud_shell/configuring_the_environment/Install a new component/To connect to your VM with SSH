@@ -1,0 +1,1 @@
+gcloud compute ssh gcelab2 --zone $ZONE
