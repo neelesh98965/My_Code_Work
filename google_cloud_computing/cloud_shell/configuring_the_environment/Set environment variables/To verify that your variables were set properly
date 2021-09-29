@@ -1,0 +1,2 @@
+echo $PROJECT_ID
+echo $ZONE
