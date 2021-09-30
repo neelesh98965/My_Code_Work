@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+
+class node{
+    public:
+    int data;
+    node* next;
+};
+
+void printlist(node* n){
+    while (n!=NULL)
+    {
+        cout<<n->data<<" ";
+        n = n->next;
+    }
+    
+}
+
+void insert(node* prev_node,int n){
+    if(prev_node == NULL){
+        cout<<"Previous node cannot be NULL";
+    }
+    node* new_node = NULL;
+    new_node = new node();
+
+    new_node->data = n;
+    new_node->next = prev_node->next;
+    prev_node->next = new_node;
+}
+
+int main()
+{
+    node* a = NULL;
+    node* b = NULL;
+    node* c = NULL;
+    node* d = NULL;
+    node* e = NULL;
+    node* f = NULL;
+    node* g = NULL;
+
+    a = new node();
+    b = new node();
+    c = new node();
+    d = new node();
+    e = new node();
+    f = new node();
+    g = new node();
+
+
+    a->data = 1;
+    a->next = b;
+
+    b->data = 2;
+    b->next = c;
+     
+    c->data = 3;
+    c->next = d;
+
+    d->data = 4;
+    d->next = e;
+
+    e->data = 5;
+    e->next = f;
+
+    f->data = 6;
+    f->next = g;
+    
+    g->data =7;
+    g->next = NULL;
+    cout<<"List before insertion ";
+    printlist(a);
+    insert(a,56);\
+    cout<<"\n"<<"List after insertion ";
+    printlist(a);
+    return 0;
+}
