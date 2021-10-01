@@ -18,10 +18,11 @@ void print(node* head){
         head = head->next;
     }
 }
-void insert(node** head,int val){
+node* insert(node* head,int val){
     node* temp = new node(val);
-    temp->next = *head;
-    *head = temp;   
+    temp->next = head;
+    head = temp;  
+    return head; 
 }
 int main()
 {
