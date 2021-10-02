@@ -1,0 +1,14 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    char s1[100],s2[100];
+    cin>>s1;
+    strcpy(s2 , s1);
+    cout<<s1<<"\nAfter Copying\n"<<s2;
+    return 0;
+}
