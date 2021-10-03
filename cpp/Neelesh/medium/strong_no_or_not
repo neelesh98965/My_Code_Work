@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+int fact(int n){
+    if(n==0 || n==1)
+    return 1;
+    else
+    return n*fact(n-1);
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+    int n,a,rem,sum = 0;
+    cin>>n;
+    a = n;
+    while (n)
+    {
+        rem = n%10;
+        fact(rem);
+        sum += fact(rem);
+        n = n/10;
+    }
+    // cout<<sum<<"\n";
+    if(a == sum){
+        cout<<"strong number";
+    }
+    else{
+        cout<<"not a strong number";
+    }
+    return 0;
+}
