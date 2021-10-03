@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    long long int t;
+    cin>>t;
+    while(t--){
+        long long int s,count = 0,recycle=0,rem=0;
+        cin>>s;
+        if(s<10){
+            cout<<s<<"\n";
+        }
+        else{
+        while(s > 9){
+            rem = s%10; 
+            s = s - rem; 
+            count += s; 
+            recycle = s/10; 
+            s = recycle + rem;  
+            if(s<10){
+                count += s;
+            }
+        }
+        cout<<count<<"\n";
+    }
+    }
+}
