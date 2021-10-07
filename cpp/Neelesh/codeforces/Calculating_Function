@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    long long int n,a,c = 0,d,f=0;
+    cin>>n;
+    if(n%2 == 0){
+        a = n/2;
+        c = a*(a+1);
+        d = a*a;
+        cout<<c-d;   
+    }
+    else if(n%2 != 0){
+        a = (n-1)/2;
+        c = a*(a+1);
+        d = (a+1)*(a+1);
+        cout<<c-d; 
+    }
+}
