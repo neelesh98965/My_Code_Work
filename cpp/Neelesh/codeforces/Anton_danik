@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n,count=0,count1=0;
+    cin>>n;
+    string s;
+    cin>>s;
+    for(int i=0;i<s.length();i++){
+        if(s[i] == 'A'){count++;}
+        else if(s[i] == 'D'){count1++;}
+    }
+    if(count > count1){cout<<"Anton";}
+    else if(count1 > count){cout<<"Danik";}
+    else if(count == count1){cout<<"Friendship";}
+}
