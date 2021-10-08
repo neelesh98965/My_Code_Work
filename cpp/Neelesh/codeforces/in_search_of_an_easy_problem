@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int val;
+        cin>>val;
+        if(val == 1){
+            cout<<"HARD";
+            exit(0);
+        }
+    }
+    cout<<"EASY";
+}
