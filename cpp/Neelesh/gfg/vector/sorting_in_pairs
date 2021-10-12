@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+
+struct interval{
+    int start ,end;
+};
+
+bool compareinterval(interval i1,interval i2){
+    return (i1.start < i2.start); 
+}
+
+int main(){
+    vector<interval>v{{1,4},{5,7},{8,9},{2,8},{6,4}};
+
+    sort(v.begin(),v.end(),compareinterval);
+
+    for(auto x : v){
+        cout<<"["<<x.start<<","<<x.end<<"]";
+    }
+}
