@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+
+int main(){
+    vector<int> v{1,7,3,4,6,0,9,2,5,8};
+    sort(v.begin(),v.end(),greater<int>());
+
+    cout<<"The sorted array is : ";
+    for(auto x : v){
+        cout<<x<<" ";
+    }
+}
