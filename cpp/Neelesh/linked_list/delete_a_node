@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class node{
+    public:
+    int data;
+    node* next;
+    node(int val){
+        data = val;
+        next = NULL;
+    }
+};
+
+void deleten(node** head,int key){
+    node* temp = *head;
+    node* prev = NULL;
+    if(temp != NULL && temp->data == key){
+        *head = temp->next;
+        delete temp;
+    }
+    else{
+        while(temp != NULL && temp->data != key){
+            prev = temp;
+            temp = temp->next;
+        }
+        if(temp == NULL)
+        return;
+        
+        prev->next = temp->next;
+        delete temp;
+    }
+}
+
+void print(node* head){
+    while(head != NULL){
+    cout<<head->data<<" ";
+    head = head->next;
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int val;
+    cin>>val;
+    node* head = new node(val);
+    node* ptr = head;
+    for(int i=0;i<n-1;i++){
+        cin>>val;
+        ptr->next = new node(val);
+        ptr = ptr->next;
+    }
+    int a;
+    cin>>a;
+    deleten(&head,a);
+    print(head);
+}
