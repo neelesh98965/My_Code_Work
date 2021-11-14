@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class node {
+    public:
+    int data ;
+    node* next;
+    node(){}
+    node (int val){
+        data = val;
+        next = NULL;
+    }
+    
+};
+
+
+void reverse(node** head){
+
+    node* current = *head;
+    node* next = NULL; 
+    node* prev = NULL;
+    while(current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *head = prev;
+}
+
+void print(node* head){
+    cout<<"The list after reversing the nodes is given below :\n";
+    while (head !=NULL){
+        cout<<head->data<<"\n";
+        head = head->next;
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int val;
+    cin>>val;
+    node* head = new node(val);
+    node* ptr = head;
+    for(int i=0;i<n-1;i++){
+        cin>>val;
+        ptr->next = new node (val);
+        ptr = ptr->next;
+    }
+    reverse(&head);
+    print(head);
+}
