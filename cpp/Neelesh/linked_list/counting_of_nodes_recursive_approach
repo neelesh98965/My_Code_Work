@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class node {
+    public:
+    int data ;
+    node* next;
+    node (int val){
+        data = val;
+        next = NULL;
+    }
+};
+
+int count(node* head){
+    if(head == NULL){
+        return 0;
+    }
+    else{
+        return 1+count(head->next);
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int val;
+    cin>>val;
+    node* head = new node(val);
+    node* ptr = head;
+    for(int i=0;i<n-1;i++){
+        cin>>val;
+        ptr->next = new node (val);
+        ptr = ptr->next;
+    }
+   cout<< count(head);
+}
