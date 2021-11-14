@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class node {
+    public:
+    int data ;
+    node* next;
+    node (int val){
+        data = val;
+        next = NULL;
+    }
+};
+
+void deletel(node** head,int position){
+
+    if(*head == NULL){
+        return;
+    }
+    node * temp = *head;
+
+    if(position == 0){
+        *head = temp->next;
+        free(temp);
+    }
+
+    for(int i=0;temp != NULL && i<(position-1);i++){
+        temp = temp->next;
+    }    
+
+    if(temp == NULL || temp->next == NULL){
+        return;
+    }
+
+    node* next = temp->next->next; 
+    free(temp->next);
+
+    temp->next = next;
+}
+
+void printlist(node * head){ 
+    cout<<"The given linked list after deletion is \n";
+    while (head!=NULL){
+        cout<<head->data<<"\n";
+        head = head->next;
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int val;
+    cin>>val;
+    node* head = new node(val);
+    node* ptr = head;
+    for(int i=0;i<n-1;i++){
+        cin>>val;
+        ptr->next = new node (val);
+        ptr = ptr->next;
+    }
+    deletel(&head,4);
+    printlist(head);
+}
