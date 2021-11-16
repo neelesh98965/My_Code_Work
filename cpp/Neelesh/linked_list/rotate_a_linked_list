@@ -1,0 +1,67 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class node {
+    public:
+    int data ;
+    node* next;
+    node(){}
+    node (int val){
+        data = val;
+        next = NULL;
+    }
+    
+};
+
+
+void rotate(node** head,int k){
+    if(k == 0){
+        return ;
+    }
+    
+    node* current = *head;
+
+    int count = 1;
+    while(count < k && current!=NULL){
+        current = current->next;
+        count++;
+    }
+
+    if(current == NULL){
+        return ;
+    }
+
+    node * kthnode = current ;
+
+    while (current->next != NULL){
+        current = current ->next;
+    }
+
+    current->next = *head;
+    *head = kthnode->next;
+    kthnode->next = NULL;
+}
+
+void print(node* head){
+    cout<<"The list after reversing the nodes is given below :\n";
+    while (head !=NULL){
+        cout<<head->data<<"\n";
+        head = head->next;
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int val;
+    cin>>val;
+    node* head = new node(val);
+    node* ptr = head;
+    for(int i=0;i<n-1;i++){
+        cin>>val;
+        ptr->next = new node (val);
+        ptr = ptr->next;
+    }
+    rotate(&head,5);
+    print(head);
+}
