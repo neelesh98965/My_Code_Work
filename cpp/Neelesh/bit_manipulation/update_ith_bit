@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void clearithbit(int &n,int i){
+    int mask = ~(1<<i);
+    n = n & mask;
+}
+
+void updateithbit(int &n,int i,int v){
+    clearithbit(n,i);
+    int mask = v<<i;
+    n = n|mask;
+}
+
+int main(){
+    int n=13;
+    int i;
+    cin>>i;
+    updateithbit(n,i,1);
+    cout<<n;
+}
