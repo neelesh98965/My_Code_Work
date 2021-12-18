@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void clearLastithbits(int &n,int i){
+    int mask = (~0)<<i;
+    n = n & mask;
+}
+
+
+int main(){
+    int n=15;
+    int i;
+    cin>>i;
+    clearLastithbits(n,i);
+    cout<<n;
+}
