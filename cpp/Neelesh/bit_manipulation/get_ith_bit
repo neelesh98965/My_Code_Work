@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int getithbit(int a,int i){
+    int mask = (1<<i);
+    return (mask&a) >0 ? 1:0;
+}
+
+int main(){
+    int a = 5;
+    int i;
+    cin>>i;
+    cout<<getithbit(a,i);
+}
