@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void clearbitsintherange(int &n,int i,int j){
+     int a = (~0)<<(j+1);
+     int b = (1<<i)-1;
+     int mask = a|b;
+     n=n&mask;   
+}
+
+void replacebits(int &n,int &m,int i,int j){
+    clearbitsintherange(n,i,j);
+    int mask = m<<i;
+    n = n|mask;
+}
+
+int main(){
+    int n =1024;
+    int m = 21;
+    int i =2,j=6;
+    // clearbitsintherange(n,i,j);
+    replacebits(n,m,i,j);
+    cout<<n;
+}
