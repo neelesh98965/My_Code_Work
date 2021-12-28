@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class node{
+	int data;
+	node* next;
+	public:
+	node(int d):data(d),next(NULL){}
+	friend class List;
+};
+
+class List{
+	node* head;
+	node* tail;
+	public:
+	List():head(NULL),tail(NULL){};
+
+	void push_front(int data){
+		if(head == NULL){
+		node* n = new node(data);
+		head = tail = n;
+		}
+		else{
+			node* n = new node(data);
+			n->next = head;
+			head = n;
+		}
+	}
+
+	void push_back(int data){
+		if(head == NULL){
+			node* n = new node(data);
+			head = tail = n;
+		}
+		else{
+			node* n = new node(data);
+			tail->next = n;
+			tail = n;
+		}
+	}
+
+	void print(){
+		while(head != NULL){
+			cout<<head->data<<"->";
+			head = head->next;
+		}
+	}
+};
+
+int main(){
+	List l;
+	l.push_front(0);
+	l.push_front(1);
+	l.push_back(5);
+	l.print();
+}
