@@ -1,0 +1,117 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class node{
+	int data;
+	node* next;
+	public:
+	node(int d):data(d),next(NULL){}
+	friend class List;
+
+	~node(){
+		if(next!=NULL){
+			delete next;
+		}
+		cout<<"Deleting node with data "<<data<<"\n";
+	}
+};
+
+class List{
+	node* head;
+	node* tail;
+	public:
+	List():head(NULL),tail(NULL){};
+
+	void push_front(int data){
+		if(head == NULL){
+		node* n = new node(data);
+		head = tail = n;
+		}
+		else{
+			node* n = new node(data);
+			n->next = head;
+			head = n;
+		}
+	}
+
+	void push_back(int data){
+		if(head == NULL){
+			node* n = new node(data);
+			head = tail = n;
+		}
+		else{
+			node* n = new node(data);
+			tail->next = n;
+			tail = n;
+		}
+	}
+
+	void insert(int data,int k){
+		if(k==0){
+			push_front(data);
+		}
+		else{
+			node* temp = head;
+			for(int i=0;i<k-1;i++){
+				temp = temp->next;
+			}
+			node* n = new node(data);
+			n->next = temp->next;
+			temp->next = n;
+		}
+	}
+
+	bool search(int key){
+		node * temp = head;
+		cout<<"\n";
+		while(temp!=NULL){
+			if(temp->data == key){
+				return true;
+			}
+			temp = temp->next;
+		}
+		return false;
+	}
+	bool recursivesearch(int key){
+		if(head == NULL){
+			return false;
+		}
+		if(head->data == key){
+			return true;
+		}
+		else{
+			head = head->next;
+			return recursivesearch(key);
+		}
+	}
+
+
+
+	void print(){
+		node * temp = head;
+		while(temp != NULL){
+			cout<<temp->data<<"->";
+			temp = temp->next;
+		}
+	}
+	~List(){
+		cout<<"\n";
+		if(head!=NULL){
+			delete head;
+			head = NULL;
+		}
+	}
+};
+
+int main(){
+	List l;
+	l.push_front(0);
+	l.push_back(1);
+	l.push_back(4);
+	l.push_back(5);
+	l.insert(2,2);
+	l.insert(3,3);
+	l.print();
+
+}
