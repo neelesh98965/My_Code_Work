@@ -66,20 +66,6 @@ class List{
 		}
 		return false;
 	}
-	bool recursivesearch(int key){
-		if(head == NULL){
-			return false;
-		}
-		if(head->data == key){
-			return true;
-		}
-		else{
-			head = head->next;
-			return recursivesearch(key);
-		}
-	}
-
-
 
 	void print(){
 		node * temp = head;
@@ -101,13 +87,5 @@ int main(){
 	l.print();
 	cout<<l.search(5);
 	cout<<l.search(55)<<"\n";
-	int key;
-	cin>>key;
-	if(l.recursivesearch(key)){
-		cout<<"Element found";
-	}
-	else{
-		cout<<"Element not found";
-	}
 
 }
