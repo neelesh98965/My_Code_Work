@@ -1,0 +1,171 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class node{
+	int data;
+	node* next;
+	public:
+	node(int d):data(d),next(NULL){}
+	friend class List;
+};
+
+class List{
+	node* head;
+	node* tail;
+	public:
+	List():head(NULL),tail(NULL){};
+
+	void push_front(int data){
+		if(head == NULL){
+		node* n = new node(data);
+		head = tail = n;
+		}
+		else{
+			node* n = new node(data);
+			n->next = head;
+			head = n;
+		}
+	}
+
+	void push_back(int data){
+		if(head == NULL){
+			node* n = new node(data);
+			head = tail = n;
+		}
+		else{
+			node* n = new node(data);
+			tail->next = n;
+			tail = n;
+		}
+	}
+
+	void insert(int data,int k){
+		if(k==0){
+			push_front(data);
+		}
+		else{
+			node* temp = head;
+			for(int i=0;i<k-1;i++){
+				temp = temp->next;
+			}
+			node* n = new node(data);
+			n->next = temp->next;
+			temp->next = n;
+		}
+	}
+
+	bool search(int key){
+		node * temp = head;
+		cout<<"\n";
+		while(temp!=NULL){
+			if(temp->data == key){
+				return true;
+			}
+			temp = temp->next;
+		}
+		return false;
+	}
+	bool recursivesearch(int key){
+		if(head == NULL){
+			return false;
+		}
+		if(head->data == key){
+			return true;
+		}
+		else{
+			head = head->next;
+			return recursivesearch(key);
+		}
+	}
+
+
+
+	void print(){
+		node * temp = head;
+		while(temp != NULL){
+			cout<<temp->data<<"->";
+			temp = temp->next;
+		}
+	}
+	
+	void pop_front(){
+		node * temp = head;
+		head = head->next;
+		temp->next = NULL;
+		delete temp;
+	}
+
+	void deletemid(int pos){
+		if(pos==0){
+			pop_front();
+		}
+		else{
+			node* temp = head;
+			for(int i=0;i<pos-1;i++){
+				temp = temp->next;
+			}
+			node* n = temp->next;
+			temp->next = n->next;
+			n->next = NULL;
+			delete n;
+		}
+	}
+
+	void pop_back(){
+		node* temp = head;
+		while(temp->next->next != NULL){
+			temp = temp ->next;
+		}
+		node* n = temp->next;
+		temp->next = NULL;
+		delete n;
+	}
+
+	void reversell(){
+		node* prev = NULL;
+		node* curr = head;
+		node* nex = NULL;
+		while(curr!=NULL){
+			nex = curr->next;
+			curr->next = prev;
+			prev = curr;
+			curr = nex;
+		}
+		head = prev;
+	}
+
+	void kthlastelement(int pos){
+		node* fast = head;
+		node* slow = head;
+		int count = 0;
+		while(count<=pos){
+			fast = fast->next;
+			count++;
+		}
+		while(fast!=NULL){
+			fast = fast->next;
+			slow = slow->next;
+		}
+		cout<<slow->data;
+	}
+};
+
+int main(){
+	List l;
+	l.push_front(0);
+	l.push_back(1);
+	l.push_back(4);
+	l.push_back(5);
+	l.insert(2,2);
+	l.insert(3,3);
+	l.push_back(6);
+	l.push_back(7);
+	l.push_back(8);
+	l.push_back(9);
+	l.print();
+	cout<<"\n";
+	int key;
+	cin>>key;
+	l.kthlastelement(key);
+}
